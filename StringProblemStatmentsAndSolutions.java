@@ -1,4 +1,6 @@
-public class StringProblemStatementsAndSolutions
+import java.util.Arrays;
+
+public class HelloWorld
 {
     public static void main(String []args)
     {
@@ -11,14 +13,55 @@ public class StringProblemStatementsAndSolutions
         System.out.println("Output : " + output);
 */
 
+/*
 //      Question-2 : Java Program to Print duplicate characters from a String
         String input = "How many duplicates are there?";
         System.out.println("Input : " + input);
         
         String output = printDuplicateCharactersFromString(input);
         System.out.println("Output : " + output);
+*/
+//      Question-3 : Java Program to check if two String are anagram or not
+        String input1 = "silent";
+        String input2 = "listen";
+        checkStringsAreAnagramOrNot(input1, input2);
+    }
+
+    public static void checkStringsAreAnagramOrNot(final String input1, final String input2)
+    {
+/*
+        approach-1 : sorting both the String and comparing each element of the String | complexity O(N LongN)
+
+        approach-2 : using 2 hash function | Time complexity O(N)
+        
+        approach-3 : using single hash function | Time complexity O(N) , Space Complexity O(size of alphabates)
+*/
+        if(input1.length() == input2.length())
+        {
+            char c1[] = input1.toCharArray();
+            char c2[] = input2.toCharArray();
+            
+            Arrays.sort(c1);
+            Arrays.sort(c2);
+            
+            if(Arrays.equals(c1,c2))
+                System.out.println("\nStrings are Anagram");
+		    else
+			    System.out.println("\nStrings are not Anagram");
+        }
     }
      
+    public static String inPlaceStringReverse(final String input)
+    {
+        int length = input.length();
+        String output = "";
+
+        for(int i = length-1; i>=0; --i)
+            output = output + input.charAt(i);
+
+        return output;
+    }
+    
     public static String printDuplicateCharactersFromString(final String input)
     {
         int length = input.length();
@@ -36,16 +79,5 @@ public class StringProblemStatementsAndSolutions
            characters += current;
         }
         return duplicates;
-    }
-
-    public static String inPlaceStringReverse(final String input)
-    {
-        int length = input.length();
-        String output = "";
-
-        for(int i = length-1; i>=0; --i)
-            output = output + input.charAt(i);
-
-        return output;
-    }
+    } 
 }
