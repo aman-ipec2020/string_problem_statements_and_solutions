@@ -29,14 +29,39 @@ public class HelloWorld
         checkStringsAreAnagramOrNot(input1, input2);
 */
 
+/*
 //      Question-4 : Java Program to reverse a String by using recursion
         String input = "listen";
         System.out.println("INPUT : " + input);
 
         String output = reverseString(input);
         System.out.println("OUTPUT : " + output);
+*/
+
+
+//      Question-5 : Java Program to check if a String contains only digits
+        String input = "Abc1233";
+        System.out.println("INPUT : " + input);
+
+        if(onlyDigits(input))
+            System.out.println("ONLY digit present");
+        else
+            System.out.println("NOT ONLY digit present");
     }
      
+    public static boolean onlyDigits(String input)
+    {
+        for (int i = 0; i < input.length(); i++)
+        {
+            if (input.charAt(i) >= 48 && input.charAt(i) <= 57)
+                return true; 
+            else
+                return false; 
+        } 
+
+        return false; 
+    } 
+    
     public static String reverseString(String input)
     {
         if (input.isEmpty())
