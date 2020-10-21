@@ -21,36 +21,31 @@ public class HelloWorld
         String output = printDuplicateCharactersFromString(input);
         System.out.println("Output : " + output);
 */
+
+/*
 //      Question-3 : Java Program to check if two String are anagram or not
         String input1 = "silent";
         String input2 = "listen";
         checkStringsAreAnagramOrNot(input1, input2);
-    }
-
-    public static void checkStringsAreAnagramOrNot(final String input1, final String input2)
-    {
-/*
-        approach-1 : sorting both the String and comparing each element of the String | complexity O(N LongN)
-
-        approach-2 : using 2 hash function | Time complexity O(N)
-        
-        approach-3 : using single hash function | Time complexity O(N) , Space Complexity O(size of alphabates)
 */
-        if(input1.length() == input2.length())
-        {
-            char c1[] = input1.toCharArray();
-            char c2[] = input2.toCharArray();
-            
-            Arrays.sort(c1);
-            Arrays.sort(c2);
-            
-            if(Arrays.equals(c1,c2))
-                System.out.println("\nStrings are Anagram");
-		    else
-			    System.out.println("\nStrings are not Anagram");
-        }
+
+//      Question-4 : Java Program to reverse a String by using recursion
+        String input = "listen";
+        System.out.println("INPUT : " + input);
+
+        String output = reverseString(input);
+        System.out.println("OUTPUT : " + output);
     }
      
+    public static String reverseString(String input)
+    {
+        if (input.isEmpty())
+         return input;
+
+        //Calling function recursively
+        return reverseString(input.substring(1)) + input.charAt(0);
+    } 
+    
     public static String inPlaceStringReverse(final String input)
     {
         int length = input.length();
@@ -80,4 +75,28 @@ public class HelloWorld
         }
         return duplicates;
     } 
+    
+    public static void checkStringsAreAnagramOrNot(final String input1, final String input2)
+    {
+/*
+        approach-1 : sorting both the String and comparing each element of the String | complexity O(N LongN)
+
+        approach-2 : using 2 hash function | Time complexity O(N)
+        
+        approach-3 : using single hash function | Time complexity O(N) , Space Complexity O(size of alphabates)
+*/
+        if(input1.length() == input2.length())
+        {
+            char c1[] = input1.toCharArray();
+            char c2[] = input2.toCharArray();
+            
+            Arrays.sort(c1);
+            Arrays.sort(c2);
+            
+            if(Arrays.equals(c1,c2))
+                System.out.println("\nStrings are Anagram");
+		    else
+			    System.out.println("\nStrings are not Anagram");
+        }
+    }
 }
